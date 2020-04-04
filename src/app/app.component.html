@@ -1,5 +1,3 @@
 <h1>{{title}}</h1>
-
-<div app-test>
-
-</div>
+<h2>Welcome to {{message}}</h2>
+<app-test (childEvent)="message=$event" [parentData]="name"></app-test>

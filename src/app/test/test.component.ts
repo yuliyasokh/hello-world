@@ -1,30 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
-  selector: '[app-test]',
+  // tslint:disable-next-line:component-selector
+  selector: 'app-test',
   template: `
-    <h2>
-      Welcome {{name}}
-    </h2>
-    <h2>{{name.toUpperCase()}}</h2>
-    <h2>{{siteUrl}}</h2>
-
-    <h2>{{greetUser()}}</h2>
-    <input [id]="myId" type="text" value="Vishla">
+    <h2>{{parentData}}</h2>
+    <button (click)="fireEvent()">Send Event</button>
   `,
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-  public name= "Julia";
-  public myId= "testId";
-  public siteUrl = window.location.href;
+  @Input() public parentData;
+  @Output() public childEvent = new EventEmitter();
+  public color = 'gg';
+  public name = '';
   constructor() { }
-
+  public fireEvent(){
+    this.childEvent.emit(this.color);
+  }
   ngOnInit(): void {
   }
-
-  public greetUser(){
-    return "Iuliia";
-}
 
 }
