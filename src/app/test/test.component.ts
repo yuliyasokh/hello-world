@@ -24,7 +24,7 @@ export class TestComponent implements OnInit {
   }
 
   public greetUser(){
-    return "Iuliia"
+    return "Iuliia";
 }
 
 }
